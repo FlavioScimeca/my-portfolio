@@ -3,7 +3,7 @@ import { Inter } from '@next/font/google';
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { GetStaticProps } from 'next';
+import { GetServerSideProps, GetStaticProps } from 'next';
 import { Experience, PageInfo, Project, Skill, Social } from 'typing';
 import { fetchPageInfo } from 'utils/fetchPageinfo';
 import { fetchSkills } from 'utils/fetchSkills';
@@ -62,7 +62,7 @@ export default function Home({ skills, projects, socials }: Props) {
   );
 }
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
+export const GetServerSideProp: GetServerSideProps<Props> = async () => {
   const skills: Skill[] = await fetchSkills();
   const socials: Social[] = await fetchSocial();
   const projects: Project[] = await fetchProject();
@@ -73,6 +73,5 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       socials,
       projects,
     },
-    revalidate: 10,
   };
 };
