@@ -5,6 +5,7 @@ import { Project } from 'typing';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { urlFor } from '../lib/client';
+import { SocialIcon } from 'react-social-icons';
 
 type Props = {
   projects: Project[];
@@ -22,7 +23,7 @@ const Projects = ({ projects }: Props) => {
         Projects
       </h3>
 
-      <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-gray-400 scrollbar-thumb-orange-400">
+      <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-gray-400 scrollbar-thumb-yellow-300">
         {projects?.map((project, index) => (
           <div
             key={index}
@@ -41,7 +42,8 @@ const Projects = ({ projects }: Props) => {
                   <div key={image.asset._ref}>
                     <Image
                       width={500}
-                      height={300}
+                      height={100}
+                      style={{ objectFit: 'contain' }}
                       src={urlFor(image).url()}
                       alt=""
                     />
@@ -49,20 +51,22 @@ const Projects = ({ projects }: Props) => {
                 ))}
               </Carousel>
             </div>
-            <div className="space-y-10 px-0 md:px-10 max-w-5xl">
-              <h4 className="text-3xl font-semibold text-center">
-                <span className="underline decoration-[#F7AB0A]/50">
+            <div className="space-y-5 md:space-y-10 px-0 md:px-10 max-w-5xl">
+              <div className="text-center text-3xl font-semibold space-x-2">
+                <span className="underline decoration-yellow-300">
                   Progetto {index + 1} di {projects.length}:
                 </span>{' '}
                 {project.title}
-              </h4>
-              <p className="text-center md:text-left">{project?.summary}</p>
+              </div>
+              <p className="text-xs w-screen px-5 md:px-0 md:w-full">
+                {project?.summary}
+              </p>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="w-full absolute top-[30%] bg-[#F7AB0A]/10 left-0 h-[350px] -skew-y-12"></div>
+      <div className="w-full absolute top-[30%] bg-green-500/30 left-0 h-[350px] -skew-y-12"></div>
     </motion.div>
   );
 };

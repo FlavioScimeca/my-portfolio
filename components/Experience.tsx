@@ -4,7 +4,7 @@ import ExperienceCard from './ExperienceCard';
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, useState } from 'react';
 import Image from 'next/image';
-import { EyeIcon } from '@heroicons/react/24/solid';
+import { EyeIcon, ArrowDownTrayIcon } from '@heroicons/react/24/solid';
 type Props = {};
 
 const Experience = (props: Props) => {
@@ -39,17 +39,27 @@ const Experience = (props: Props) => {
         <div>
           <ExperienceCard />
         </div>
-        <div className="flex items-end justify-start mt-7">
+        <div className="flex justify-center space-x-3 mt-7">
           <button
             type="button"
             onClick={openModal}
-            className="flex rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+            className="flex rounded-md bg-black bg-opacity-20 px-3 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
           >
             Vedi attestato
-            <span className="ml-5">
+            <span>
               <EyeIcon className="h-5 w-5 text-gray-700" />{' '}
             </span>
           </button>
+          <a
+            className="flex rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+            href="/download/Scimeca_Flavio_CV.docx"
+            download
+          >
+            Scarica CV{' '}
+            <span className="ml-5">
+              <ArrowDownTrayIcon className="h-5 w-5 text-gray-700" />{' '}
+            </span>
+          </a>
         </div>
       </div>
 

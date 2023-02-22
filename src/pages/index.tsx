@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import { Inter } from '@next/font/google';
-
 import Link from 'next/link';
 import Image from 'next/image';
 import { GetServerSideProps, GetStaticProps } from 'next';
@@ -27,11 +26,10 @@ type Props = {
 };
 
 export default function Home({ skills, projects, socials }: Props) {
-  console.log(skills);
   return (
-    <div className="bg-[rgb(46,50,50)] h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 text-white md:scrollbar scrollbar-track-gray-400 scrollbar-thumb-orange-400 scroll-smooth">
+    <div className="bg-[#2e3232] h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 text-white md:scrollbar scrollbar-track-gray-400 scrollbar-thumb-yellow-300 scroll-smooth">
       <Head>
-        <title>My portfolio</title>
+        <title>Flavio Scimeca</title>
       </Head>
       <div>
         <Header socials={socials} />
